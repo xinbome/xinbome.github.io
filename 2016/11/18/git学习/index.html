@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://sunxinbo.me">
+  <title>git学习 | 编程小记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="为什么学git我的现状和经历
+
+上一门课或者自学一个主题，我习惯写电子笔记，还有最近归纳总结的博客文档。
+过去写demo修改完善它的时候总是不断复制粘帖，最后弄的很混乱 也很焦虑。
+我在写我博客搭建的笔记时，发现才过1个半月好多东西都忘了。
+引用网上别人的话”怎样让自己的心静下来？整理干净电脑（特别是桌面）中文件夹。”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习">
+<meta property="og:url" content="http://sunxinbo.me/2016/11/18/git学习/index.html">
+<meta property="og:site_name" content="编程小记">
+<meta property="og:description" content="为什么学git我的现状和经历
+
+上一门课或者自学一个主题，我习惯写电子笔记，还有最近归纳总结的博客文档。
+过去写demo修改完善它的时候总是不断复制粘帖，最后弄的很混乱 也很焦虑。
+我在写我博客搭建的笔记时，发现才过1个半月好多东西都忘了。
+引用网上别人的话”怎样让自己的心静下来？整理干净电脑（特别是桌面）中文件夹。”">
+<meta property="og:updated_time" content="2017-04-02T12:17:39.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git学习">
+<meta name="twitter:description" content="为什么学git我的现状和经历
+
+上一门课或者自学一个主题，我习惯写电子笔记，还有最近归纳总结的博客文档。
+过去写demo修改完善它的时候总是不断复制粘帖，最后弄的很混乱 也很焦虑。
+我在写我博客搭建的笔记时，发现才过1个半月好多东西都忘了。
+引用网上别人的话”怎样让自己的心静下来？整理干净电脑（特别是桌面）中文件夹。”">
+  
+    <link rel="alternative" href="/atom.xml" title="编程小记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/photo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">新博</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/aboutblog">博客</a></li>
+	        
+				<li><a href="/tags/">标签云</a></li>
+	        
+				<li><a href="/timeline">时间线</a></li>
+	        
+				<li><a href="/readinglist">阅读清单</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/xinbome/" title="github">github</a>
+		        
+					<a class="mail" target="_blank" href="mailto:xinbome.learn@outlook.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">新博</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/photo.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">新博</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/aboutblog">博客</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/timeline">时间线</a></li>
+		        
+					<li><a href="/readinglist">阅读清单</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xinbome/" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xinbome.learn@outlook.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-git学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="为什么学git"><a href="#为什么学git" class="headerlink" title="为什么学git"></a>为什么学git</h1><pre><code>我的现状和经历
+</code></pre><ul>
+<li>上一门课或者自学一个主题，我习惯写电子笔记，还有最近归纳总结的博客文档。</li>
+<li>过去写demo修改完善它的时候<strong><em>总是不断复制粘帖，</em></strong>最后弄的很<strong><em>混乱</em></strong> 也很<strong><em>焦虑。</em></strong></li>
+<li>我在写我博客搭建的笔记时，发现才过1个半月好多东西都忘了。</li>
+<li>引用网上别人的话”怎样让自己的心静下来？整理干净电脑（特别是桌面）中文件夹。”<a id="more"></a>
+</li>
+</ul>
+<p><br><br><br></p>
+<pre><code>我的观点
+</code></pre><ul>
+<li>希望能以某种方式当场纪录作业的流程，事后据此留下一个说明文档，而不是以学会的立场跳步骤的记录。</li>
+<li>个人觉得工科的很多东西不需要死记硬背，因为作用范围太小，一个流程基本上只能解决特定的问题．不像数学，学会了这门形式科学的一个小领域就能解决一个方面的问题。</li>
+<li>虽然不需要死记硬背，但<strong><em>记录是必须的，</em></strong>自己花费了大量的时间去检索资料，处理问题，解决莫名其妙的坑，<strong><em>如果不记录，那么以后还得重头再折腾一遍。</em></strong></li>
+</ul>
+<p><br><br><br></p>
+<pre><code>git的作用
+</code></pre><ul>
+<li>一个是创建分支以便无后顾之忧的折腾。</li>
+<li>在commit时留下准确说明，方便事后整理。</li>
+<li>每遇到一个较大的改动都可以建立分支甚至多个分支，最后只需要合并改动就行了，一种高级的偷懒方式。</li>
+</ul>
+<p><br><br><br><br><br><br><br><br><br></p>
+<h1 id="怎样学的git"><a href="#怎样学的git" class="headerlink" title="怎样学的git"></a>怎样学的git</h1><pre><code>之前在写博客的时候只用了三条git命令来推送到Github仓库
+</code></pre><ul>
+<li>git add .</li>
+<li>git commit -m “update”</li>
+<li>git push origin master</li>
+</ul>
+<p><br><br><br></p>
+<pre><code>11月14日到12月10日是四周的企业课，花了四天抽空学习Git
+</code></pre><ul>
+<li>照着廖雪峰的Git教程操作了一遍。</li>
+<li>看了一遍Github入门与实践。</li>
+<li>再看了半本Pro Git。</li>
+<li>然后刷了两遍Learn Git Branching。</li>
+<li>最后把Pro Git看了一遍。(还是好多不懂，看了就忘)</li>
+<li>刷了Learn Git Branching 后对廖雪峰的教程理解更加清楚了，廖雪峰的教程很易懂容易记住很实用，至于其它的内容留个印象，以后遇到了估计还要Google，至于命令也不需要死记硬背，查询help就可以了，不过我觉得我还得学一下计算机专业英语，我这专业没这门课。</li>
+</ul>
+<p><br><br><br><br><br></p>
+
+      
+
+
+
+
+
+    </div>
+
+
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/18/git学习/" class="archive-article-date">
+  	<time datetime="2016-11-18T12:50:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-18</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/方法工具/">方法工具</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/07/谈谈学习中信息的获取/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          谈谈学习中信息的获取
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/24/时间不够用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">时间不够用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 新博
+
+        总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+  
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">我是一只IT小小鸟，目前准备考研中&lt;br/&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
