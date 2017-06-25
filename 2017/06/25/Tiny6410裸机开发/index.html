@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://sunxinbo.me">
+  <title>Tiny6410裸机开发 | 编程小记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发环境参考手册
+友善之臂的Tiny6410硬件手册
+友善之臂的使用 J-Link 在 ADS 下调试 Mini6410 裸机程序的详细步骤
+TinyADK-1312B-Schematic(外围电路)
+Tiny6410-1308-Schmetic(核心板电路)
+三星S3C6410用户手册(中文版)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tiny6410裸机开发">
+<meta property="og:url" content="http://sunxinbo.me/2017/06/25/Tiny6410裸机开发/index.html">
+<meta property="og:site_name" content="编程小记">
+<meta property="og:description" content="开发环境参考手册
+友善之臂的Tiny6410硬件手册
+友善之臂的使用 J-Link 在 ADS 下调试 Mini6410 裸机程序的详细步骤
+TinyADK-1312B-Schematic(外围电路)
+Tiny6410-1308-Schmetic(核心板电路)
+三星S3C6410用户手册(中文版)">
+<meta property="og:updated_time" content="2017-06-25T06:04:43.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tiny6410裸机开发">
+<meta name="twitter:description" content="开发环境参考手册
+友善之臂的Tiny6410硬件手册
+友善之臂的使用 J-Link 在 ADS 下调试 Mini6410 裸机程序的详细步骤
+TinyADK-1312B-Schematic(外围电路)
+Tiny6410-1308-Schmetic(核心板电路)
+三星S3C6410用户手册(中文版)">
+  
+    <link rel="alternative" href="/atom.xml" title="编程小记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/photo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">新博</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/aboutblog">博客</a></li>
+	        
+				<li><a href="/tags/">标签云</a></li>
+	        
+				<li><a href="/timeline">时间线</a></li>
+	        
+				<li><a href="/readinglist">阅读清单</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/xinbome/" title="github">github</a>
+		        
+					<a class="mail" target="_blank" href="mailto:xinbome.learn@outlook.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">新博</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/photo.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">新博</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/aboutblog">博客</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/timeline">时间线</a></li>
+		        
+					<li><a href="/readinglist">阅读清单</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xinbome/" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xinbome.learn@outlook.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Tiny6410裸机开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tiny6410裸机开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><h2 id="参考手册"><a href="#参考手册" class="headerlink" title="参考手册"></a>参考手册</h2><ul>
+<li>友善之臂的Tiny6410硬件手册</li>
+<li>友善之臂的使用 J-Link 在 ADS 下调试 Mini6410 裸机程序的详细步骤</li>
+<li>TinyADK-1312B-Schematic(外围电路)</li>
+<li>Tiny6410-1308-Schmetic(核心板电路)</li>
+<li>三星S3C6410用户手册(中文版)<a id="more"></a>
+<br></li>
+</ul>
+<h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><ul>
+<li>广州友善之臂 Tiny6410开发板</li>
+<li>CPU：三星S3C6410</li>
+<li>CPU内核型号：ARM11 76JFZ</li>
+<li>CPU内核系列：ARM11</li>
+<li>CPU内核体系结构：ARM V6</li>
+<li>J-link ARM仿真器</li>
+<li>usb转换器,将串口连接到开发机usb上<br><br></li>
+</ul>
+<h2 id="开发软件都部署到一个windows-xp虚拟机内"><a href="#开发软件都部署到一个windows-xp虚拟机内" class="headerlink" title="开发软件都部署到一个windows xp虚拟机内"></a>开发软件都部署到一个windows xp虚拟机内</h2><ul>
+<li>编码,编译在CodeWarrior for RVDS</li>
+<li>AXD Debugger v1.3.1</li>
+<li>dnw1.01显示串口的信息<br><br><br><br></li>
+</ul>
+<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>制作可以在屏幕上显示电子时钟系统，分为三种工作模式：</p>
+<ul>
+<li>正常工作模式。显示时间，掉电不丢失。</li>
+<li>时钟设置模式。在此模式下可以设置当前的时间，包括年、月、日、时、分、秒。</li>
+<li>闹铃设置模式。在此模式下设置闹铃时间，包括小时和分钟，还可以设置闹铃开关，如果关闭开关，则时间到时不提醒。</li>
+<li>如果闹铃开关打开，当设置时间到时，蜂鸣器响，通过按键可关闭蜂鸣器。</li>
+<li>通过串口实现当前时间的输出。</li>
+</ul>
+<p><br><br><br></p>
+<h1 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h1><h2 id="GPIO-蜂鸣器"><a href="#GPIO-蜂鸣器" class="headerlink" title="GPIO:蜂鸣器"></a>GPIO:蜂鸣器</h2><p>根据原理图和手册可知,先将<code>GPFCON[29:28] = 0b00</code>设置为输出,<code>GPFDAT[14] = 0b01</code>设置高电平时鸣叫。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	GPFCON = GPFCON &amp; (~(<span class="number">0x1</span> &lt;&lt; (<span class="number">29</span>)));<span class="comment">//29位0, GPF14</span></div><div class="line">	GPFCON = GPFCON|(<span class="number">0x1</span> &lt;&lt;(<span class="number">2</span>*<span class="number">14</span>));<span class="comment">//28位1,01表示输出</span></div><div class="line">	GPFDAT &amp;= ~(<span class="number">0x1</span>&lt;&lt;<span class="number">14</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">bombon</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> value = <span class="number">0</span>;</div><div class="line">	value = GPFDAT;</div><div class="line">	<span class="comment">/*将GPFDAT的4号位设1，控制端输出高电平BEE*/</span></div><div class="line">	value |= <span class="number">0x1</span>&lt;&lt;<span class="number">14</span>;</div><div class="line">	GPFDAT = value;</div><div class="line">&#125;</div><div class="line"></div><div class="line">	<span class="comment">/*尝试了一下，如果这里和下面直接GPFDAT |= 0x1&lt;&lt;14这样对寄存器操作，蜂鸣器不会响,问了老师,老师只是说开发过程中不会直接读取寄存器值,会影响系统性能和硬件寿命*/</span></div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="GPIO-按键模块"><a href="#GPIO-按键模块" class="headerlink" title="GPIO:按键模块"></a>GPIO:按键模块</h2><ul>
+<li>用查询方式实现按键驱动</li>
+<li>按键：按下，电路导通；未按下，电路断开；</li>
+<li>按键一端接地（0低电平），一端（控制端）通过上拉电阻接到高电平（1， 3.3V）</li>
+<li>按键未按下时，控制端为1，高电平；</li>
+<li>按键按下后，控制端为0，低电平</li>
+<li>K1 –GPN0   输入    1（未按下） 0（按下）</li>
+<li>K2-GPN1    输入</li>
+<li>K3-GPN2    输入</li>
+<li>K4-GPN3    输入</li>
+<li>初始化为:<code>GPNCON[7：0] = 0b00 00 00 00</code></li>
+<li>读<code>GPNDAT[3:0] = 0b1111</code>, 变0的那位就是对应按下的按键,按键驱动核心就是读取<code>GPNDAT&amp;0x0F</code>这一值。在调试过程中,通过观察内存里<code>0x7F008834</code>的值,发现两个键同按或者更多键同按是可以显示预期的值的,我据此在业务逻辑设计了三种工作模式。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">key_init</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> value;</div><div class="line">	value = GPNCON;</div><div class="line">	value &amp;= ((~(<span class="number">0x03</span>&lt;&lt;<span class="number">8</span>))&amp;(~(<span class="number">0x03</span>&lt;&lt;<span class="number">4</span>))&amp;(~(<span class="number">0x03</span>&lt;&lt;<span class="number">2</span>))&amp;(~(<span class="number">0x03</span>&lt;&lt;<span class="number">0</span>)));</div><div class="line">	GPNCON = value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="UART串口通讯"><a href="#UART串口通讯" class="headerlink" title="UART串口通讯"></a>UART串口通讯</h2><ul>
+<li>1初始化GPIO  GPA为TxD，RxD</li>
+<li><code>GPACON[7:0]=0b 0010 0010</code></li>
+<li>位移掩码<code>GPACON&amp;=~（0xf&lt;&lt;0）&amp;~（0xf&lt;&lt;4）</code></li>
+<li><code>GPACON|=（0x1&lt;&lt;1）|（0x1&lt;&lt;5）</code></li>
+<li>2初始化通信协议（数据帧格式（8N1），波特率115200(PCLK=66.5MHz)）</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">UART_Init</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="comment">/* GPA0-&gt;RXD[0]   GPA1-&gt;TXD[0]; */</span></div><div class="line">	GPACON &amp;= ~(<span class="number">0xFF</span>&lt;&lt;<span class="number">0</span>);</div><div class="line">	GPACON |= <span class="number">0x22</span>&lt;&lt;<span class="number">0</span>;</div><div class="line"></div><div class="line">	ULCON0 &amp;= ~(<span class="number">0x3</span>&lt;&lt;<span class="number">0</span>);</div><div class="line">	ULCON0 |= (<span class="number">0x3</span>&lt;&lt;<span class="number">0</span>);</div><div class="line"></div><div class="line">	UCON0  &amp;= ~(<span class="number">0xF</span>&lt;&lt;<span class="number">0</span>);</div><div class="line">	UCON0  |= (<span class="number">1</span>&lt;&lt;<span class="number">2</span>)|(<span class="number">1</span>&lt;&lt;<span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="comment">/* 波特率计算</span></div><div class="line">		DIV_VAL=(PCLK/(bps x 16))-1</div><div class="line">		DIV_VAL =(66500000/(115200x16))-1</div><div class="line">				=35.08</div><div class="line">	*/</div><div class="line">	UBRDIV0 = <span class="number">35</span>;</div><div class="line">	<span class="comment">/*  x/16 = 0.08</span></div><div class="line">		x=1   =&gt;   UDIVSLOT0 0x80</div><div class="line">	*/</div><div class="line">	UDIVSLOT0 = <span class="number">0x80</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>发送和接受消息就是调用老师给的接口了。</p>
+<p><br></p>
+<h2 id="RTC实时时钟"><a href="#RTC实时时钟" class="headerlink" title="RTC实时时钟"></a>RTC实时时钟</h2><p>Tiny6410外围电路上有一个比较大的纽扣电池,即使板子断电,系统时间还继续运行。只需要读取和写入对应地址的值就行,不过寄存器里的编码是8421BCD编码,平常显示的时候需要转换为十进制DEC编码。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">DEC_to_BCD</span><span class="params">(<span class="keyword">int</span> DEC_Code)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> temp;</div><div class="line">    <span class="keyword">if</span>(DEC_Code &gt; <span class="number">99</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    temp = DEC_Code / <span class="number">10</span>;</div><div class="line">    temp &lt;&lt;= <span class="number">4</span>;</div><div class="line">    temp += DEC_Code % <span class="number">10</span>;</div><div class="line">    <span class="keyword">return</span> temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">BCD_to_DEC</span><span class="params">(<span class="keyword">int</span> BCD_Code)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> ((BCD_Code &gt;&gt; <span class="number">4</span>) * <span class="number">10</span> + (BCD_Code &amp; <span class="number">0x0f</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注:RTC年份范围是0~99,再加上2000,遇到年份的转换需要事先或者事后加减2000。</p>
+<p><br><br><br><br><br><br><br></p>
+<p>其余核心模块(中断,时间源,lcd驱动,IIC总线)原理课就听的似懂非懂,后来老师直接提供的代码,我也没懂其原理。业务逻辑我就不说了,业务逻辑中一半的时间都用在了排版图片上,对前端无爱了。代码已上传到github。作为物联网(嵌入式方向)学了数电,电工电子,微机原理与接口技术,传感器原理,电子电路CAD,RFID原理与应用,总算是在老师全程辅导下写了一个小小的demo。遗憾的是由于时间原因老师取消了bootloader的移植计划。上学期的一周的嵌入式原理课,用的是全功能物联网开发箱在qt-arm-linux的交叉编译那里卡壳了,老师用的新版本,然后每次编译半小时左右就跳出错误,最后也没解决。上学期的ARM课,这学期的驱动开发用的也是Tiny6410,但我的毕业设计想要玩玩树莓派。</p>
+
+      
+
+
+
+
+
+    </div>
+
+
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/25/Tiny6410裸机开发/" class="archive-article-date">
+  	<time datetime="2017-06-25T01:50:14.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/嵌入式/">嵌入式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/企业课/">企业课</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/25/linux-c笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux-c笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 新博
+
+        您是第 <span id="busuanzi_value_site_uv"></span> 个访客
+        
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+  
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">我是一只IT小小鸟，目前准备考研中&lt;br/&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
